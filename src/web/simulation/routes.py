@@ -1,5 +1,4 @@
-from flask import Blueprint, flash, redirect, render_template, request, url_for
-from sqlalchemy.exc import IntegrityError
+from flask import Blueprint, render_template
 
 
 SIMULATION_BP = Blueprint(

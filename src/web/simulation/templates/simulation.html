@@ -1,1 +1,9 @@
-<h1>シミュレーションページ</h1>
+{% extends 'layout.html' %}
+
+
+{% block content %}
+    <h1>シミュレーションページだよ~~</h1>
+    <canvas id="lineChart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='js/simulation.js')}}"></script>
+{% endblock %}

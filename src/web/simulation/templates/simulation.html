@@ -3,6 +3,8 @@
 
 {% block content %}
     <h1>シミュレーションページだよ~~</h1>
+    <input type="number" id="current-point">
+    <input type="number" id="monthly-get-point">
     <canvas id="lineChart"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <script type=text/javascript src="{{ url_for('static', filename='js/simulation.js')}}"></script>

@@ -7,4 +7,5 @@ SIMULATION_BP = Blueprint(
 
 @SIMULATION_BP.route("/", methods=["GET"])
 def simulation():
+    
     return render_template("simulation.html"), 409

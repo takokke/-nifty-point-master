@@ -1,6 +1,6 @@
 const ctx = document.getElementById("lineChart")
 const currentPointInput = document.getElementById("current-point")
-const monthlyGetPoint = document.getElementById("monthly-get-point")
+const monthlyGetPointInput = document.getElementById("monthly-get-point")
 
 
 const getAdjustedMonth = (month) => {
@@ -54,7 +54,6 @@ let myLineChart = new Chart(ctx, {
             ticks: {
             suggestedMax: 5000,
             suggestedMin: 0,
-            stepSize: 1000,
             callback: function(value, index, values){
                 return  value +  'pt'
             }
@@ -67,13 +66,20 @@ let myLineChart = new Chart(ctx, {
 // inputタグの値が変更されたときに値を表示
 currentPointInput.addEventListener("input", () => {
     const currentPoint = currentPointInput.value;
-    console.log(currentPoint);
+    const monthlyPoint = monthlyGetPointInput.value;
+
 
     // データセットを更新
-    myLineChart.data.datasets[0].data = [0, 600, 1200, 1800, 2400, 3000, 3600, 4200].map(val => val + Number(currentPoint));
+    myLineChart.data.datasets[0].data = [0, 600, 1200, 1800, 2400, 3000, 3600, 4200].map((val, idx) => Number(monthlyPoint)* idx + Number(currentPoint));
+
     myLineChart.update();
 })
 
-monthlyGetPoint.addEventListener("input", () => { 
-    
+monthlyGetPointInput.addEventListener("input", () => { 
+    const monthlyPoint = monthlyGetPointInput.value;
+    const currentPoint = currentPointInput.value;
+
+    myLineChart.data.datasets[0].data = [0, 600, 1200, 1800, 2400, 3000, 3600, 4200].map((val, idx) => Number(monthlyPoint)* idx + Number(currentPoint));
+    myLineChart.update();
+
 })

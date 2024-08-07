@@ -4,9 +4,36 @@ const monthlyGetPointInput = document.getElementById("monthly-get-point")
 const goalPointInput = document.getElementById("goal-point")
 
 
-
 const getAdjustedMonth = (month) => {
     return ((month - 1) % 12) + 1;
+}
+
+const updateBarChart = () => { 
+    const currentPoint = currentPointInput.value;
+    const monthlyPoint = monthlyGetPointInput.value;
+
+    myLineChart.data.datasets[0].data = [0, 0, 0, 0, 0].map((val, idx) => {
+        let updateVal = 0;
+        switch (idx) {
+        case 0:
+            updateVal = Number(currentPoint)
+            break
+        case 1:
+            updateVal = Number(monthlyPoint) * 1 + Number(currentPoint)
+            break    
+        case 2:
+            updateVal = Number(monthlyPoint) * 3 + Number(currentPoint)
+            break
+        case 3:
+            updateVal = Number(monthlyPoint) * 6 + Number(currentPoint)
+            break
+        default:
+            updateVal = Number(monthlyPoint) * 12 + Number(currentPoint)
+            break   
+        }
+        return updateVal
+    })
+    myLineChart.update()
 }
 
 // 月の取得
@@ -93,9 +120,10 @@ let myLineChart = new Chart(ctx, {
                     bordercolor: 'rgba(200,60,60,0.8)',
                     borderwidth: 2,
                     fontStyle: 'normal',
+                    fontSize: 10,
                     fontColor: 'rgba(0,0,0,1)',
-                    xPadding: 10,
-                    yPadding: 10,
+                    xPadding: 4,
+                    yPadding: 4,
                     cornerRadius: 3,
                     position: 'right',
                     xAdjust: -10,
@@ -108,64 +136,16 @@ let myLineChart = new Chart(ctx, {
     }
 })
 
+updateBarChart();
+
 // inputタグの値が変更されたときに値を表示
 currentPointInput.addEventListener("input", () => {
-    const currentPoint = currentPointInput.value;
-    const monthlyPoint = monthlyGetPointInput.value;
+    updateBarChart();
 
-    // myLineChart.data.datasets[1].data = [0, 600, 1200, 1800, 2400, 3000, 3600].map((val, idx) => Number(monthlyPoint)* idx + Number(currentPoint));
-    myLineChart.data.datasets[0].data = [0, 0, 0, 0, 0].map((val, idx) => {
-        let updateVal = 0;
-        switch (idx) {
-        case 0:
-            updateVal = Number(currentPoint)
-            break
-        case 1:
-            updateVal = Number(monthlyPoint) * 1 + Number(currentPoint)
-            break    
-        case 2:
-            updateVal = Number(monthlyPoint) * 3 + Number(currentPoint)
-            break
-        case 3:
-            updateVal = Number(monthlyPoint) * 6 + Number(currentPoint)
-            break
-        default:
-            updateVal = Number(monthlyPoint) * 12 + Number(currentPoint)
-            break   
-        }
-        return updateVal
-    })
-    myLineChart.update()
 })
 
 monthlyGetPointInput.addEventListener("input", () => { 
-    const monthlyPoint = monthlyGetPointInput.value;
-    const currentPoint = currentPointInput.value;
-
-    // myLineChart.data.datasets[1].data = [0, 600, 1200, 1800, 2400, 3000, 3600].map((val, idx) => Number(monthlyPoint)* idx + Number(currentPoint));
-    myLineChart.data.datasets[0].data = [0, 0, 0, 0, 0].map((val, idx) => {
-        let updateVal = 0;
-        switch (idx) {
-        case 0:
-            updateVal = Number(currentPoint)
-            break
-        case 1:
-            updateVal = Number(monthlyPoint) * 1 + Number(currentPoint)
-            break    
-        case 2:
-            updateVal = Number(monthlyPoint) * 3 + Number(currentPoint)
-            break
-        case 3:
-            updateVal = Number(monthlyPoint) * 6 + Number(currentPoint)
-            break
-        default:
-            updateVal = Number(monthlyPoint) * 12 + Number(currentPoint)
-            break   
-        }
-        return updateVal
-    })
-    myLineChart.update()
-
+    updateBarChart();
 })
 goalPointInput.addEventListener("input", () => { 
     const goalPoint = goalPointInput.value;
@@ -175,3 +155,4 @@ goalPointInput.addEventListener("input", () => {
     myLineChart.update()
 
 })
+

@@ -1,0 +1,28 @@
+@charset "UTF-8";
+p{
+    font-style: none;
+}
+li{
+    list-style: none;
+    
+}
+ul{
+    padding-left: 0;
+}
+h4{
+    text-align: center;
+}
+.line{
+    width: 1920px;
+}
+.font-title{
+    font-family: "Dela Gothic One";
+    font-size: 48px;
+}
+.fp{
+    font-family: "Mplus 1p";
+    font-size: 32px;
+}
+.list{
+    margin-left: 5px;
+}

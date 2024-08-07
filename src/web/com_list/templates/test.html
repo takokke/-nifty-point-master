@@ -4,7 +4,45 @@
   テストページ
 {% endblock %}
 
+{% block extra_css %}{% endblock %}
+
 {% block content %}
+
+  <header>
+    <nav class="d-none d-lg-block d-xl-block">
+      <div class="container-fluid d-flex justify-content-between">
+        <h1 class="font-title">@niftyポイントマスター(仮)</h1>
+        <div class="login d-flex">
+          <img class="account_icon" src="{{url_for('static', filename = 'human_icon.png') }}">
+          <p>アカウント</p>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <hr class="line">
+  <div class="container-fluid d-flex justify-content-start mt-3">
+    <p class="fp">ポイント：</p>
+    <input type="text" class="mx-3"></input>
+    <!--ポイント数インプット欄下限-->
+    <p class="fw-bold fs-3">～</p>
+    <input type="text" class="mx-3"></input>
+    <!--ポイント数インプット欄上限-->
+  </div>
+  <div class="products">
+    <div class="row">
+      {% for product in products %}
+        <div class="col-12 col-md-3 list">
+          <a href="">
+            <img src="https://placehold.jp/243x207.png" alt="">
+          </a>
+          <h4>{{ product.name }}</h4>
+          <h4>{{ product.points }}pt</h4>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
   <div class="container">
     <h1>Product List</h1>
     <form method="get" action="/products">
@@ -46,4 +84,3 @@
     {% endfor %}
   </div>
 {% endblock %}
-

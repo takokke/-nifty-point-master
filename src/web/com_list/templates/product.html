@@ -1,56 +1,48 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-  ログイン
+  商品一覧ページ
 {% endblock %}
 
 {% block content %}
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="card-title text-center mb-4">ログイン</h2>
-
-            {% with messages = get_flashed_messages(with_categories = true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                  {{ message }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-              {% endfor %}
-            {% endif %}
-            {% endwith %}
-
-            <form method="POST" class="needs-validation" novalidate="novalidate">
-              {{ form.hidden_tag() }}
-              <div class="mb-3">
-                {{ form.username.label(class="form-label") }}
-                {{ form.username(class="form-control") }}
-                {% for error in form.username.errors %}
-                  <div class="invalid-feedback d-block">{{ error }}</div>
-                {% endfor %}
-              </div>
-              <div class="mb-3">
-                {{ form.password.label(class="form-label") }}
-                {{ form.password(class="form-control") }}
-                {% for error in form.password.errors %}
-                  <div class="invalid-feedback d-block">{{ error }}</div>
-                {% endfor %}
-              </div>
-
-              <div class="d-grid gap-2">
-                {{ form.submit(class="btn btn-primary") }}
-              </div>
-            </form>
-
-            <div class="mt-3 text-center">
-              <a href="{{ url_for('app.auth.signup') }}">新規登録</a>
-            </div>
-          </div>
+  <header>
+    <nav class="d-none d-lg-block d-xl-block">
+      <div class="container-fluid d-flex justify-content-between">
+        <h1 class="font-title">@niftyポイントマスター(仮)</h1>
+        <div class="login d-flex">
+          <img src="/app/src/web/static/人物のアイコン素材 その3.png">
+          <p>アカウント</p>
         </div>
       </div>
+    </nav>
+  </header>
+
+  <hr class="line">
+  <div class="container-fluid d-flex justify-content-start mt-3">
+    <form action="{{ url_for('app.comlist.com_list') }}" method="post" class="d-flex">
+      <p class="fp">ポイント：</p>
+      <input type="number" class="mx-3" name="min_points" min="0" {% if min_points != None %} value="{{ min_points }}" {% endif %}></input>
+      <!--ポイント数インプット欄下限-->
+      <p class="fw-bold fs-3">～</p>
+      <input type="number" class="mx-3" name="max_points" min="0" {% if max_points != None %} value="{{ max_points }}" {% endif %}></input>
+      <!--ポイント数インプット欄上限-->
+      <button type="submit" class="btn btn-primary mx-3">適用</button>
+      <!-- 提出ボタン -->
+    </form>
+  </div>
+  <div class="product mt-5">
+    <!--商品一覧リスト-->
+    <div class="d-flex flex-wrap">
+      {% for product in products %}
+        <div class="col-3 list">
+          <a href="">
+            <img src="https://placehold.jp/243x207.png" alt="">
+          </a>
+          <h4>{{ product.name }}</h4>
+          <h4>{{ product.points }}pt</h4>
+        </div>
+      {% endfor %}
     </div>
   </div>
+
 {% endblock %}

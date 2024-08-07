@@ -1,28 +1,28 @@
 @charset "UTF-8";
-p{
-    font-style: none;
-}
-li{
-    list-style: none;
-    
-}
-ul{
-    padding-left: 0;
-}
+
+
 h4{
     text-align: center;
 }
+
 .line{
     width: 1920px;
 }
-.font-title{
-    font-family: "Dela Gothic One";
-    font-size: 48px;
+.font-title {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
+
 .fp{
     font-family: "Mplus 1p";
-    font-size: 32px;
+    font-size: 40px;
 }
 .list{
     margin-left: 5px;
+    padding-left: 10px;
+}
+input{
+    width: 100px;
+    height: 40px;
 }

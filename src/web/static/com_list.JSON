@@ -1,0 +1,22 @@
+{
+  "name": "商品リスト",
+  "content": [
+    {
+      "id": 0,
+      "name": "aa",
+      "points": 40
+    }, {
+      "id": 1,
+      "name": "bb",
+      "points": 40
+    }, {
+      "id": 2,
+      "name": "cc",
+      "points": 40
+    }, {
+      "id": 3,
+      "name": "dd",
+      "points": 40
+    }
+  ]
+}

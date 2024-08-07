@@ -4,11 +4,13 @@ from flask import Blueprint, render_template
 from flask_login import current_user, login_required
 
 from web.auth.routes import AUTH_BP
+from web.com_list.routes import COMLIST_BP
 
 APP_BP = Blueprint("app", __name__)
 
 # ログイン用のエンドポイントを追加する
 APP_BP.register_blueprint(AUTH_BP)
+APP_BP.register_blueprint(COMLIST_BP)
 
 
 @APP_BP.route("/")

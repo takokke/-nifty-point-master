@@ -21,6 +21,8 @@ def admin():
             "username": user.username,
             "current_point": user.current_point,
             "monthly_point": user.monthly_point,
+            "goal_point": user.goal_point,
+            "is_admin": user.is_admin,
         }
         for user in users
     ]

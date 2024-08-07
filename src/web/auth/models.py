@@ -9,6 +9,7 @@ class User(DB.Model, UserMixin):
     hashed_password = DB.Column(DB.String(256))
     current_point = DB.Column(DB.Integer, default=0)
     monthly_point = DB.Column(DB.Integer, default=0)
+    goal_point = DB.Column(DB.Integer, default=0)
     is_admin = DB.Column(DB.Boolean, default=False)
 
     def __init__(self, username: str, hashed_password: str):

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  テストページ
+{% endblock %}
+
+{% block content %}
+  <h1>Items List</h1>
+  <ul>
+    {% for product in products %}
+      <li>
+        <strong>ID:</strong>
+        {{ product["id"] }}<br>
+        <strong>Name:</strong>
+        {{ product["name"] }}<br>
+        <strong>Points:</strong>
+        {{ product["points"] }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

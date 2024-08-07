@@ -1,28 +1,36 @@
 @charset "UTF-8";
 
-
-h4{
-    text-align: center;
+body{
+    padding: 0;
+    margin: 0;
 }
-
-.line{
-    width: 1920px;
+p{
+    font-family: "M PLUS 1p";
 }
-.font-title {
-  font-family: "Dela Gothic One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.header{
+    margin: 0 30px;
 }
-
+.header h1{
+    font-family: "Dela Gothic One";
+}
+.login_icon{
+    max-width: 56px;
+    max-height: 42px;
+}
+.main-container{
+    padding: 10px 50px 0;
+}
 .fp{
-    font-family: "Mplus 1p";
-    font-size: 40px;
+    font-size: 20px;
 }
-.list{
-    margin-left: 5px;
-    padding-left: 10px;
+.d-flex h4{
+    text-align: center;
+    color: #F00;
+    font-size: 48px;
 }
-input{
-    width: 100px;
-    height: 40px;
+.d-flex img{
+    margin-left: 3px;
+}
+#point_count .fp{
+    height: 6px;
 }

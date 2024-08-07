@@ -14,4 +14,4 @@ COMLIST_BP = Blueprint(
 @COMLIST_BP.route("/", methods=["GET"])
 def com_list():
     form = LoginForm()
-    return render_template("login.html", form=form)
+    return render_template("product.html", form=form)

@@ -5,17 +5,45 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Items List</h1>
-  <ul>
+  <div class="container">
+    <h1>Product List</h1>
+    <form method="get" action="/products">
+      <div>
+        <label for="name">Filter by:</label>
+        <input type="text" name="name" id="name" placeholder="Field name" value="{{ request.args.get('name', 'points') }}">
+      </div>
+      <div>
+        <label for="min">Min value:</label>
+        <input type="text" name="min" id="min" placeholder="Min value" value="{{ request.args.get('min', '') }}">
+      </div>
+      <div>
+        <label for="max">Max value:</label>
+        <input type="text" name="max" id="max" placeholder="Max value" value="{{ request.args.get('max', '') }}">
+      </div>
+      <button type="submit">Filter</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash-message">
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% endwith %}
     {% for product in products %}
-      <li>
-        <strong>ID:</strong>
-        {{ product["id"] }}<br>
-        <strong>Name:</strong>
-        {{ product["name"] }}<br>
-        <strong>Points:</strong>
-        {{ product["points"] }}
-      </li>
+      <div class="product">
+        <div>
+          <h2>{{ product.name }}</h2>
+          <p>ID:
+            {{ product.id }}</p>
+        </div>
+        <div>
+          <p>Points:
+            {{ product.points }}</p>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 {% endblock %}
+

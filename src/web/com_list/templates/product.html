@@ -6,25 +6,54 @@
 
 {% block content %}
   <header>
-    <nav id="nav-1" class="d-none d-lg-block d-xl-block">
-      <div class="d-flex justify-content-between mt-2">
-        <h1>@niftyポイントマスター(仮)</h1>
-      </div>
-      <div class="container">
-        <img src="">
-        <p>アカウント</p>
+    <nav class="d-none d-lg-block d-xl-block">
+      <div class="container-fluid d-flex justify-content-between">
+        <h1 class="font-title">@niftyポイントマスター(仮)</h1>
+        <div class="login d-flex">
+          <img src="/app/src/web/static/人物のアイコン素材 その3.png">
+          <p>アカウント</p>
+        </div>
       </div>
     </nav>
   </header>
-  <br>
-  <div class="container">
-    <p>ポイント：</p>
+
+  <hr class="line">
+  <div class="container-fluid d-flex justify-content-start mt-3">
+    <p class="fp">ポイント：</p>
+    <input type="text" class="mx-3"></input>
     <!--ポイント数インプット欄下限-->
-    <p>～</p>
+    <p class="fw-bold fs-3">～</p>
+    <input type="text" class="mx-3"></input>
     <!--ポイント数インプット欄上限-->
   </div>
-  <div>
+  <div class="product mt-5">
     <!--商品一覧リスト-->
+    <div class="d-flex">
+      <div class="col-3 list">
+        <a href="">
+          <img src="https://placehold.jp/243x207.png" alt="">
+        </a>
+        <h4>100pt</h4>
+      </div>
+      <div class="col-3 list">
+        <a href="">
+          <img src="https://placehold.jp/243x207.png" alt="">
+        </a>
+        <h4>100pt</h4>
+      </div>
+      <div class="col-3 list">
+        <a href="">
+          <img src="https://placehold.jp/243x207.png" alt="">
+        </a>
+        <h4>100pt</h4>
+      </div>
+      <div class="col-3 list">
+        <a href="">
+          <img src="https://placehold.jp/243x207.png" alt="">
+        </a>
+        <h4>100pt</h4>
+      </div>
+    </div>
   </div>
 
 {% endblock %}

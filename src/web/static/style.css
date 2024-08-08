@@ -77,10 +77,11 @@ p{
 
 .filter-form{
     padding: 0px;
+    justify-content: center;
 }
 
 .filter-form p{
-    padding: 0px;
+    padding: auto 0px;
 }
 
 

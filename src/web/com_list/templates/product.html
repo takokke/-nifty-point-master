@@ -9,9 +9,11 @@
     <nav class="d-none d-lg-block d-xl-block mt-4">
       <div class="container-fluid d-flex justify-content-between" id="navi">
         <h1 class="font-title">@niftyポイントマスター(仮)</h1>
-        <div class="login d-flex">
-          <img src="/static/人物のアイコン素材 その3.png" class="login_icon">
-          <p>アカウント</p>
+        <div class="login">
+          <a href="" class="d-flex">
+            <img src="{{ url_for('static', filename='image/人物のアイコン素材 その3.png') }}" class="login_icon">
+            <p>アカウント</p>
+          </a>
         </div>
       </div>
     </nav>
@@ -22,7 +24,7 @@
     <div class="container-fluid d-flex justify-content-start mt-3" id="point_count">
       <form action="{{ url_for('app.comlist.com_list') }}" method="post" class="d-flex">
 
-        <p class="fp">ポイント：</p>
+        <p class="mt-2">ポイント：</p>
         <input type="number" class="mx-3 text-box" name="min_points" min="0" {% if min_points != None %} value="{{ min_points }}" {% endif %}></input>
         <!--ポイント数インプット欄下限-->
         <p class="fw-bold">～</p>
@@ -38,9 +40,9 @@
         {% for product in products %}
           <div class="col-3">
             <a href="">
-              <img src="https://placehold.jp/280x245.png" alt="">
+              <img src="{{url_for('static', filename=product.img)}}" alt="">
             </a>
-            <h4>{{ product.name }}</h4>
+            <h4 class="product-name">{{ product.name }}</h4>
             <h4>{{ product.points }}pt</h4>
           </div>
         {% endfor %}

@@ -21,16 +21,17 @@
 
   <hr class="line">
   <div class="main-container">
-    <div class="container-fluid d-flex justify-content-start mt-3" id="point_count">
+    <div class="container-fluid d-flex justify-content-start mt-3 filter-container" id="point_count">
       <form action="{{ url_for('app.comlist.com_list') }}" method="post" class="d-flex filter-form">
 
-        <p class="mt-2">ポイント：</p>
-        <input type="number" class="mx-3 text-box" name="min_points" min="0" {% if min_points != None %} value="{{ min_points }}" {% endif %}></input>
+        <p class="">ポイント：</p>
+        <input type="number" class="text-box filter-input" name="min_points" min="0" {% if min_points != None %} value="{{ min_points }}" {% endif %}></input>
         <!--ポイント数インプット欄下限-->
-        <p class="fw-bold">～</p>
-        <input type="number" class="mx-3 text-box" name="max_points" min="0" {% if max_points != None %} value="{{ max_points }}" {% endif %}></input>
+        <p class="filter-tilde">〜</p>
+        <input type="number" class="text-box filter-input" name="max_points" min="0" {% if max_points != None %} value="{{ max_points }}" {% endif %}></input>
         <!--ポイント数インプット欄上限-->
-        <button type="submit" class="btn btn-primary mx-3">適用</button>
+        <p class="filter-pt">pt</p>
+        <button type="submit" class="filter-button">適用</button>
         <!-- 提出ボタン -->
       </form>
     </div>
@@ -38,7 +39,7 @@
       <!--商品一覧リスト-->
       <div class="d-flex flex-wrap">
         {% for product in products %}
-          <div class="col-3">
+          <div class="col-3 one_product">
             <a href="">
               <img class="product-img" src="{{url_for('static', filename=product.img)}}" alt="">
             </a>

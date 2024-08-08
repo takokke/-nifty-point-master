@@ -30,5 +30,10 @@
       "name": "gg",
       "points": 15
     }
+    , {
+      "id": 7,
+      "name": "hh",
+      "points": 45
+    }
   ]
 }

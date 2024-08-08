@@ -46,7 +46,7 @@ p{
 }
 .d-flex h4{
     text-align: center;
-    color: #F00;
+    /* color: #F00; */
     font-size: 48px;
 }
 .d-flex img{
@@ -64,4 +64,13 @@ p{
 
 .product-name {
     color: black;
+
+}
+
+.product-point {
+    color: red;
+}
+
+.product-img{
+    background-color: #D9D9D9;
 }

@@ -4,35 +4,43 @@
     {
       "id": 0,
       "name": "aa",
-      "points": 400
+      "points": 400,
+      "img": "/image/colored-pencils-402546_1280.jpg"
     }, {
       "id": 1,
       "name": "bb",
-      "points": 10
+      "points": 10,
+      "img": "/image/hairdryer-295616_1280.jpg"
     }, {
       "id": 2,
       "name": "cc",
-      "points": 24
+      "points": 24,
+      "img": "/image/post-it-notes-5895716_1280.jpg"
     }, {
       "id": 3,
       "name": "dd",
-      "points": 55
+      "points": 55,
+      "img": "/image/royal-fan-1195360_1280.jpg"
     }, {
       "id": 4,
       "name": "ee",
-      "points": 83
+      "points": 83,
+      "img": "/image/woman-6082552_1280.jpg"
     }, {
       "id": 5,
       "name": "ff",
-      "points": 64
+      "points": 64,
+      "img": "src/web/static/image/22220635_s.jpg"
     }, {
       "id": 6,
       "name": "gg",
-      "points": 15
+      "points": 15,
+      "img": "/image/30029386_s.jpg"
     }, {
       "id": 7,
       "name": "hh",
-      "points": 45
+      "points": 45,
+      "img": ""
     }
   ]
 }

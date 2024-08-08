@@ -46,7 +46,7 @@ p{
 }
 .d-flex h4{
     text-align: center;
-    color: #F00;
+    /* color: #F00; */
     font-size: 48px;
 }
 .d-flex img{
@@ -56,4 +56,21 @@ p{
 }
 #point_count .fp{
     height: 6px;
+}
+
+.product .d-flex.flex-wrap {
+  row-gap: 30px; /* 行間と列間の隙間を設定 */
+}
+
+.product-name {
+    color: black;
+
+}
+
+.product-point {
+    color: red;
+}
+
+.product-img{
+    background-color: #D9D9D9;
 }

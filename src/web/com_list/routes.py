@@ -27,7 +27,7 @@ COMLIST_BP = Blueprint(
 @COMLIST_BP.route("/", methods=["GET", "POST"])
 def com_list():
     products = get_json_data()["content"]
-    min_points = request.form.get("min_points")
+    min_points = request.form.get("min_points", 0)
     max_points = request.form.get("max_points")
 
     if request.method == "POST":

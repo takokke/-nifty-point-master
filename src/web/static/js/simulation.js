@@ -13,7 +13,7 @@ const updateBarChart = () => {
     const monthlyPoint = monthlyGetPointInput.value;
 
     // 頭文字が0の場合は処理を終了
-    if ((currentPoint.startsWith('0') || monthlyPoint.startsWith('0') || currentPoint.startsWith('-') || monthlyPoint.startsWith('-')) && ( Number(currentPoint) !== 0 && Number(monthlyPoint) !== 0)) {
+    if ((currentPoint.startsWith('0') || monthlyPoint.startsWith('0') || currentPoint.startsWith('-') || monthlyPoint.startsWith('-')) && ( Number(currentPoint) !== 0 || Number(monthlyPoint) !== 0)) {
         return;
     }
 

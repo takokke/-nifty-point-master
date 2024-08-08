@@ -13,7 +13,8 @@ const updateBarChart = () => {
     const monthlyPoint = monthlyGetPointInput.value;
 
     // 頭文字が0の場合は処理を終了
-    if ((currentPoint.startsWith('0') || monthlyPoint.startsWith('0') || currentPoint.startsWith('-') || monthlyPoint.startsWith('-')) && ( Number(currentPoint) !== 0 || Number(monthlyPoint) !== 0)) {
+    // if ((currentPoint.startsWith('0') || monthlyPoint.startsWith('0') || currentPoint.startsWith('-') || monthlyPoint.startsWith('-')) && ( Number(currentPoint) !== 0 || Number(monthlyPoint) !== 0)) {
+    if (currentPoint.match(/^([1-9][0-9]*|0)$/) === null || monthlyPoint.match(/^([1-9][0-9]*|0)$/) === null) {
         return;
     }
 
@@ -44,7 +45,8 @@ const updateBarChart = () => {
 const updateLineChart = () => { 
     const goalPoint = goalPointInput.value;
     // 頭文字が0の場合は処理を終了
-    if ((goalPoint.startsWith('0') || goalPoint.startsWith('-')) && Number(goalPoint) !== 0) {
+    // if ((goalPoint.startsWith('0') || goalPoint.startsWith('-')) && Number(goalPoint) !== 0) {
+    if (goalPoint.match(/^([1-9][0-9]*|0)$/) === null) {
         return;
     }
     myLineChart.options.annotation.annotations[0].value  =  Number(goalPoint);

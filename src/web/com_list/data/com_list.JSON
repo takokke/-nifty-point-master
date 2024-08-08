@@ -4,7 +4,7 @@
     {
       "id": 0,
       "name": "aa",
-      "points": 40
+      "points": 400
     }, {
       "id": 1,
       "name": "bb",
@@ -29,8 +29,7 @@
       "id": 6,
       "name": "gg",
       "points": 15
-    }
-    , {
+    }, {
       "id": 7,
       "name": "hh",
       "points": 45

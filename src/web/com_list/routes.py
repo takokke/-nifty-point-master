@@ -17,7 +17,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from ..models import DB
 from .forms import LoginForm, SignupForm
-from .util import filter_products_by_int, get_json_data
+from .util import filter_products_by_int, get_json_data, sort_products
 
 COMLIST_BP = Blueprint(
     "comlist", __name__, url_prefix="/com_list", template_folder="templates"
@@ -41,6 +41,8 @@ def com_list():
                 )
         except ValueError:
             flash("無効な入力値です。数値を入力してください。", "error")
+
+    products = sort_products(products)
 
     return render_template(
         "product.html", products=products, min_points=min_points, max_points=max_points

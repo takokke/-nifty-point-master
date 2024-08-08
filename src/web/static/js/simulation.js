@@ -59,14 +59,21 @@ const updateLink = () => {
     const link = document.getElementById('exchange-link');
 
     // 現在のオリジン（プロトコル + ホスト + ポート）を取得
-    const currentOrigin = window.location.origin;
+    // const currentOrigin = window.location.origin;
 
     // オリジンに基づいてリンクを設定
-    if (currentOrigin.includes("localhost:18347")) {
-        link.href = "/com_list/" + "?max_points=" + encodeURIComponent(goalPoint);
-    } else {
-        link.href = "/team4/com_list/" + "?max_points=" + encodeURIComponent(goalPoint);
-    }
+    // if (currentOrigin.includes("localhost:18347")) {
+    //     link.href = "/com_list/" + "?max_points=" + encodeURIComponent(goalPoint);
+    // } else {
+    //     link.href = "/team4/com_list/" + "?max_points=" + encodeURIComponent(goalPoint);
+    // }
+
+    // 現在のパスを取得
+    const currentPath = window.location.pathname;
+
+    // パスに基づいてリンクを設定
+    // デフォルトのパスを/simulation/から/に変更したのでこれで問題ない
+    link.href = currentPath + "com_list/?max_points=" + encodeURIComponent(goalPoint);
 }
 
 // ページが読み込まれた時と、入力値が変更された時にupdateLink関数を呼び出す

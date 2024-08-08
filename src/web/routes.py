@@ -6,6 +6,7 @@ from flask_login import current_user, login_required
 from web.admin.routes import ADMIN_BP
 from web.auth.routes import AUTH_BP
 from web.profile.routes import PROFILE_BP
+from web.update.routes import UPDATE_BP
 
 APP_BP = Blueprint("app", __name__)
 
@@ -13,6 +14,7 @@ APP_BP = Blueprint("app", __name__)
 APP_BP.register_blueprint(AUTH_BP)
 APP_BP.register_blueprint(ADMIN_BP)
 APP_BP.register_blueprint(PROFILE_BP)
+APP_BP.register_blueprint(UPDATE_BP)
 
 
 @APP_BP.route("/")

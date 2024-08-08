@@ -15,6 +15,8 @@ def admin():
     if not current_user.is_admin:
         return redirect(url_for("app.profile.profile"))
     users = User.query.all()
+    me=current_user
+    username=me.username
     data = [
         {
             "id": user.id,

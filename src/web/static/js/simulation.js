@@ -12,6 +12,11 @@ const updateBarChart = () => {
     const currentPoint = currentPointInput.value;
     const monthlyPoint = monthlyGetPointInput.value;
 
+    // 頭文字が0の場合は処理を終了
+    if ((currentPoint.startsWith('0') || monthlyPoint.startsWith('0') || currentPoint.startsWith('-') || monthlyPoint.startsWith('-')) && Number(currentPoint) !== 0 && Number(monthlyPoint) !== 0) {
+        return;
+    }
+
     myLineChart.data.datasets[0].data = [0, 0, 0, 0, 0].map((val, idx) => {
         let updateVal = 0;
         switch (idx) {
@@ -38,6 +43,10 @@ const updateBarChart = () => {
 
 const updateLineChart = () => { 
     const goalPoint = goalPointInput.value;
+    // 頭文字が0の場合は処理を終了
+    if ((goalPoint.startsWith('0') || goalPoint.startsWith('-')) && Number(goalPoint) !== 0) {
+        return;
+    }
     myLineChart.options.annotation.annotations[0].value  =  Number(goalPoint);
     myLineChart.options.annotation.annotations[0].endValue  =  Number(goalPoint);
     myLineChart.update()
@@ -99,7 +108,7 @@ let myLineChart = new Chart(ctx, {
             yAxes: [{
             id: 'goal',
             ticks: {
-            suggestedMax: 5000,
+            suggestedMax: 10,
             suggestedMin: 0,
             callback: function(value, index, values){
                 return  value +  ''
@@ -147,6 +156,8 @@ updateLineChart();
 
 // inputタグの値が変更されたときに値を表示
 currentPointInput.addEventListener("input", () => {
+
+
     updateBarChart();
 
 })

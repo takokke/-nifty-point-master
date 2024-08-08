@@ -13,7 +13,7 @@ ADMIN_BP = Blueprint(
 @login_required
 def admin():
     if not current_user.is_admin:
-        return render_template("user.html"), 403
+        return redirect(url_for("app.profile.profile"))
     users = User.query.all()
     me=current_user
     username=me.username

@@ -9,6 +9,7 @@ UPDATE_BP = Blueprint(
     "update", __name__, url_prefix="/update", template_folder="templates"
 )
 
+
 @UPDATE_BP.route("/", methods=["GET", "POST"])
 @login_required
 def update():
@@ -21,11 +22,11 @@ def update():
         user.monthly_point = form.monthly_point.data
         user.goal_point = form.goal_point.data
         DB.session.commit()
-        flash('ユーザー情報が更新されました')
-        return redirect(url_for('app.update.update'))  # 修正されたエンドポイント名
+        flash("ユーザー情報が更新されました")
+        return redirect(url_for("app.profile.profile"))  # 修正されたエンドポイント名
     elif request.method == "GET":
         form.username.data = user.username
         form.current_point.data = user.current_point
         form.monthly_point.data = user.monthly_point
         form.goal_point.data = user.goal_point
-    return render_template('update.html', form=form, user=user)
+    return render_template("update.html", form=form, user=user)

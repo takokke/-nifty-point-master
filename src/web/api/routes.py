@@ -140,16 +140,16 @@ def update_profile():
     data = request.json
     user = current_user
 
-    new_username = data.get("username")
-    if new_username:
-        existing_user = User.query.filter_by(username=new_username).first()
-        if existing_user and existing_user.id != user.id:
-            return jsonify({"message": "Username already exists"}), 400
+    # new_username = data.get("username")
+    # if new_username:
+    #     existing_user = User.query.filter_by(username=new_username).first()
+    #     if existing_user and existing_user.id != user.id:
+    #         return jsonify({"message": "Username already exists"}), 400
 
-    user.username = new_username if new_username else user.username
-    if "password" in data:
-        user.password = generate_password_hash(data["password"])
-    # user.current_point = data.get("current_point", user.current_point)
+    # user.username = new_username if new_username else user.username
+    # if "password" in data:
+    #     user.password = generate_password_hash(data["password"])
+    user.current_point = data.get("current_point", user.current_point)
     user.monthly_point = data.get("monthly_point", user.monthly_point)
     user.goal_point = data.get("goal_point", user.goal_point)
 

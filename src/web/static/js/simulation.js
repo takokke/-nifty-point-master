@@ -36,6 +36,13 @@ const updateBarChart = () => {
     myLineChart.update()
 }
 
+const updateLineChart = () => { 
+    const goalPoint = goalPointInput.value;
+    myLineChart.options.annotation.annotations[0].value  =  Number(goalPoint);
+    myLineChart.options.annotation.annotations[0].endValue  =  Number(goalPoint);
+    myLineChart.update()
+}
+
 // 月の取得
 const today = new Date()
 const thisMonth = today.getMonth() + 1
@@ -55,8 +62,7 @@ let myLineChart = new Chart(ctx, {
             "1ヶ月後",
             "3ヶ月後",
             "半年後",
-            "1年後",
-            // getAdjustedMonth(thisMonth + 5)
+            "1年後"
         ],
         datasets: [
         {
@@ -116,18 +122,18 @@ let myLineChart = new Chart(ctx, {
                 borderColor: 'red', // 線の色
                 borderWidth: 3, // 線の幅（太さ）
                 label: { // ラベルの設定
-                    backgroundColor: 'rgba(255,255,255,1)',
+                    backgroundColor: 'rgba(255,255,255,0.5)',
                     bordercolor: 'rgba(200,60,60,0.8)',
                     borderwidth: 2,
-                    fontStyle: 'normal',
+                    fontStyle: 'bold',
                     fontSize: 10,
-                    fontColor: 'rgba(0,0,0,1)',
+                    fontColor: '#616161',
                     xPadding: 4,
                     yPadding: 4,
                     cornerRadius: 3,
-                    position: 'right',
-                    xAdjust: -10,
-                    yAdjust: -20,
+                    position: 'center',
+                    xAdjust: 50,
+                    yAdjust: 0,
                     enabled: true,
                     content: '目標ポイント'
                 }
@@ -137,6 +143,7 @@ let myLineChart = new Chart(ctx, {
 })
 
 updateBarChart();
+updateLineChart();
 
 // inputタグの値が変更されたときに値を表示
 currentPointInput.addEventListener("input", () => {
@@ -147,12 +154,9 @@ currentPointInput.addEventListener("input", () => {
 monthlyGetPointInput.addEventListener("input", () => { 
     updateBarChart();
 })
-goalPointInput.addEventListener("input", () => { 
-    const goalPoint = goalPointInput.value;
-    
-    myLineChart.options.annotation.annotations[0].value  =  Number(goalPoint);
-    myLineChart.options.annotation.annotations[0].endValue  =  Number(goalPoint);
-    myLineChart.update()
 
+// 目標ポイントの更新
+goalPointInput.addEventListener("input", () => { 
+    updateLineChart();
 })
 

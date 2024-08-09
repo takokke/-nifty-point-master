@@ -13,7 +13,6 @@ const updateBarChart = () => {
     const monthlyPoint = monthlyGetPointInput.value;
 
     // 頭文字が0の場合は処理を終了
-    // if ((currentPoint.startsWith('0') || monthlyPoint.startsWith('0') || currentPoint.startsWith('-') || monthlyPoint.startsWith('-')) && ( Number(currentPoint) !== 0 || Number(monthlyPoint) !== 0)) {
     if (currentPoint.match(/^([1-9][0-9]*|0)$/) === null || monthlyPoint.match(/^([1-9][0-9]*|0)$/) === null) {
         return;
     }
@@ -45,7 +44,6 @@ const updateBarChart = () => {
 const updateLineChart = () => { 
     const goalPoint = goalPointInput.value;
     // 頭文字が0の場合は処理を終了
-    // if ((goalPoint.startsWith('0') || goalPoint.startsWith('-')) && Number(goalPoint) !== 0) {
     if (goalPoint.match(/^([1-9][0-9]*|0)$/) === null) {
         return;
     }
@@ -59,16 +57,6 @@ const updateLink = () => {
     const goalPoint = document.getElementById('goal-point').value;
     // リンクのhrefを更新
     const link = document.getElementById('exchange-link');
-
-    // 現在のオリジン（プロトコル + ホスト + ポート）を取得
-    // const currentOrigin = window.location.origin;
-
-    // オリジンに基づいてリンクを設定
-    // if (currentOrigin.includes("localhost:18347")) {
-    //     link.href = "/com_list/" + "?max_points=" + encodeURIComponent(goalPoint);
-    // } else {
-    //     link.href = "/team4/com_list/" + "?max_points=" + encodeURIComponent(goalPoint);
-    // }
 
     // 現在のパスを取得
     const currentPath = window.location.pathname;

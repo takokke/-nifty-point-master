@@ -42,6 +42,16 @@ def com_list():
         except ValueError:
             flash("無効な入力値です。数値を入力してください。", "error")
 
+    elif request.method == "GET":
+        max_points_query = request.args.get("max_points")
+        if max_points_query:
+            try:
+                max_points = int(max_points_query)
+                min_points = 0
+                products = filter_products_by_int(products, "points", 0, max_points)
+            except ValueError:
+                flash("無効なクエリパラメータです。数値を入力してください。", "error")
+    
     products = sort_products(products)
 
     return render_template(

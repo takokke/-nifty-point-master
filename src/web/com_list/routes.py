@@ -51,15 +51,9 @@ def com_list():
                 products = filter_products_by_int(products, "points", 0, max_points)
             except ValueError:
                 flash("無効なクエリパラメータです。数値を入力してください。", "error")
-    
+
     products = sort_products(products)
 
     return render_template(
         "product.html", products=products, min_points=min_points, max_points=max_points
     )
-
-
-@COMLIST_BP.route("/data")
-def get_com_list():
-    products = get_json_data()["content"]
-    return render_template("test.html", products=products)

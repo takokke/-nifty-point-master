@@ -11,7 +11,7 @@ Flask + Bootstrap + MySQL を使用した、ポイントシミュレーション
 目標を設定し、ポイント獲得のモチベーションを上げることを目的にしています。
 
 ## デモ動画
-<video src="src/web/static/画面収録 2024-08-16 19.48.34.mov" controls="true" width="600"></video>
+![デモ動画](src/web/static/2024-08-1619.48.34-ezgif.com-video-to-gif-converter.gif)
 
 ## フォルダ構成
 

@@ -10,8 +10,8 @@
 Flask + Bootstrap + MySQL を使用した、ポイントシミュレーションアプリです。
 目標を設定し、ポイント獲得のモチベーションを上げることを目的にしています。
 
-## デモ動画
-![デモ動画](src/web/static/2024-08-1619.48.34-ezgif.com-video-to-gif-converter.gif)
+## アプリ画像
+![アプリ画像](src/web/static/image/スクリーンショット%202024-08-16%2020.09.04.png)
 
 ## フォルダ構成
 
